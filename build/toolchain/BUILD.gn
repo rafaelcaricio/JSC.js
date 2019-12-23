@@ -1,19 +1,26 @@
 import("//build/toolchain/clang_toolchain.gni")
 import("//build/toolchain/msvc_toolchain.gni")
 
-if (host_os == "win") {
-    emcc_ext = ".bat"
-} else {
-    emcc_ext = ""
-}
+#if (host_os == "win") {
+#    emcc_ext = ".bat"
+#} else {
+#    emcc_ext = ""
+#}
 clang_toolchain("emcc") {
-    cc = "emcc${emcc_ext}"
-    cxx = "em++${emcc_ext}"
-    asm = "emcc${emcc_ext}" # this is just a placeholder
-    ar = "emar${emcc_ext}"
-    ld = "em++${emcc_ext}"
-    obj_extension = ".bc"
-    executable_extension = ".js"
+    # cc = "emcc${emcc_ext}"
+    # cxx = "em++${emcc_ext}"
+    # asm = "emcc${emcc_ext}" # this is just a placeholder
+    # ar = "emar${emcc_ext}"
+    # ld = "em++${emcc_ext}"
+    # obj_extension = ".bc"
+    # executable_extension = ".js"
+    cc = "clang"
+    cxx = "clang++"
+    asm = "clang" # this is just a placeholder
+    ar = "ar"
+    ld = "clang++"
+    obj_extension = ".o"
+    executable_extension = ""
 }
 
 clang_toolchain("clang") {

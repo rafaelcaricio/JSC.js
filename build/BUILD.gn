@@ -114,6 +114,7 @@ config("compiler_defaults") {
         ]
         cflags_cc = [
             "-std=c++17",
+            #"-stdlib=libc++",
             "-fno-exceptions",
             "-fvisibility-inlines-hidden",
         ]
@@ -138,8 +139,8 @@ config("compiler_defaults") {
     # emscripten flags
     if (target_os == "wasm") {
         cflags += [
-            "-m32",
-            "-s", "NO_EXIT_RUNTIME=1",
+            #"-m32",
+            #"-s", "NO_EXIT_RUNTIME=1",
         ]
     }
 }
@@ -147,12 +148,13 @@ config("compiler_defaults") {
 config("executable_ldconfig") {
     if (target_os == "wasm") {
         ldflags = [
-            "-s", "NO_EXIT_RUNTIME=1",
-            "-s", "EXPORTED_FUNCTIONS=['_jsc_eval', '_jsc_compile', '_jsc_eval_bytecode']",
-            "-s", "EXTRA_EXPORTED_RUNTIME_METHODS=['cwrap']",
-            "-s", "BINARYEN_TRAP_MODE='clamp'",
-            "-s", "ALLOW_MEMORY_GROWTH=1",
+            #"-s", "NO_EXIT_RUNTIME=1",
+            #"-s", "EXPORTED_FUNCTIONS=['_jsc_eval', '_jsc_compile', '_jsc_eval_bytecode']",
+            #"-s", "EXTRA_EXPORTED_RUNTIME_METHODS=['cwrap']",
+            #"-s", "BINARYEN_TRAP_MODE='clamp'",
+            #"-s", "ALLOW_MEMORY_GROWTH=1",
             #"-s", "USE_PTHREADS=1",
+            "-lpthread",
         ]
         if (is_debug == true) {
             ldflags += [
@@ -163,8 +165,8 @@ config("executable_ldconfig") {
             ]
         } else {
             ldflags += [
-                "-s", "WASM=1",
-                "-Oz",
+                #"-s", "WASM=1",
+                #"-Oz",
             ]
         }
     } else if (target_os == "linux") {

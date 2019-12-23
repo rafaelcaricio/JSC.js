@@ -111,7 +111,7 @@ private:
     BackendDispatcher(Ref<FrontendRouter>&&);
 
     // This is necessary for some versions of Safari. Remove it when those versions of Safari are no longer supported.
-    void reportProtocolError(WTF::DeprecatedOptional<long> relatedRequestId, CommonErrorCode, const String& errorMessage);
+    //void reportProtocolError(WTF::DeprecatedOptional<long> relatedRequestId, CommonErrorCode, const String& errorMessage);
 
     Ref<FrontendRouter> m_frontendRouter;
     HashMap<String, SupplementalBackendDispatcher*> m_dispatchers;

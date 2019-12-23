@@ -31,17 +31,8 @@
 
 #include <type_traits>
 #include <wtf/Optional.h>
-
-namespace std {
-
-template <class T>
-class optional : private WTF::OptionalBase<T> {
-public:
-    explicit constexpr operator bool() const __NOEXCEPT { return WTF::OptionalBase<T>::init_; }
-    constexpr T const& value() const& { return WTF::OptionalBase<T>::storage_.value_; }
-};
-
-}
+#include <functional>
+#include <optional>
 
 namespace WTF {
 

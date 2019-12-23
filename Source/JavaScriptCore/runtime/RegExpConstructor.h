@@ -24,6 +24,7 @@
 #include "RegExp.h"
 #include "RegExpCachedResult.h"
 #include "RegExpObject.h"
+#include "HeapCell.h"
 
 namespace JSC {
 

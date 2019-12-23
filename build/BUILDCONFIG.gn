@@ -28,7 +28,8 @@ set_defaults("source_set") {
 }
 
 if (target_os == "wasm") {
-    set_default_toolchain("//build/toolchain:emcc")
+    # set_default_toolchain("//build/toolchain:emcc")
+    set_default_toolchain("//build/toolchain:clang")
 } else if (target_os == "linux") {
     set_default_toolchain("//build/toolchain:clang")
 } else if (target_os == "win") {

@@ -29,6 +29,7 @@
 #include "StructureInlines.h"
 #include "YarrFlags.h"
 
+
 namespace JSC {
 
 static EncodedJSValue regExpConstructorInput(ExecState*, EncodedJSValue, PropertyName);
